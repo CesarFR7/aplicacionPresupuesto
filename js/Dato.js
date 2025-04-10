@@ -13,7 +13,7 @@ class Dato {
   }
 
   get valor() {
-    return this.valor;
+    return this._valor;
   }
 
   set valor(valor) {

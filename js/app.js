@@ -1,14 +1,55 @@
-const ingreso = [
+const ingresos = [
   new Ingreso("Salario", 2100.0),
   new Ingreso("Venta coche", 1500),
 ];
 const egresos = [
-  new Egresos("Renta departamento", 900),
-  new Egresos("Ropa", 400),
+  new Egreso("Renta departamento", 900),
+  new Egreso("Ropa", 400),
 ];
 
 let cargarApp = () => {
   cargarCabecero();
 };
 
-let cargarCabecero = () => {};
+let totalIngresos = () => {
+  let totalIngreso = 0;
+  for (let ingreso of ingresos) {
+    totalIngreso += ingreso.valor;
+  }
+  return totalIngreso;
+};
+
+let totalEgresos = () => {
+  let totalEgreso = 0;
+  for (let egreso of egresos) {
+    totalEgreso += egreso.valor;
+  }
+  return totalEgreso;
+};
+
+let cargarCabecero = () => {
+  let presupuesto = totalIngresos() - totalEgresos();
+  //   let convertirACadena= par;
+  //   let numeroCaracteres = presupuesto.length;
+  //   console.log(numeroCaracteres);
+  let porcentaje = totalEgresos() / totalIngresos();
+  document.getElementById("presupuesto").innerHTML = formatoMoneda(presupuesto);
+  document.getElementById("porcentaje").innerHTML = formatoPorcentaje(porcentaje);
+  document.getElementById("ingresos").innerHTML = formatoMoneda(totalIngresos());
+  document.getElementById("egresos").innerHTML = formatoMoneda(totalEgresos());
+};
+
+const formatoMoneda = (valor) => {
+  return valor.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  });
+};
+
+const formatoPorcentaje = (valor) => {
+  return valor.toLocaleString("en-US", {
+    style: "percent",
+    minimumFractionDigits: 2,
+  });
+};
