@@ -34,8 +34,11 @@ let cargarCabecero = () => {
   //   console.log(numeroCaracteres);
   let porcentaje = totalEgresos() / totalIngresos();
   document.getElementById("presupuesto").innerHTML = formatoMoneda(presupuesto);
-  document.getElementById("porcentaje").innerHTML = formatoPorcentaje(porcentaje);
-  document.getElementById("ingresos").innerHTML = formatoMoneda(totalIngresos());
+  document.getElementById("porcentaje").innerHTML =
+    formatoPorcentaje(porcentaje);
+  document.getElementById("ingresos").innerHTML = formatoMoneda(
+    totalIngresos()
+  );
   document.getElementById("egresos").innerHTML = formatoMoneda(totalEgresos());
 };
 
