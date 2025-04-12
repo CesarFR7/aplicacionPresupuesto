@@ -56,3 +56,11 @@ const formatoPorcentaje = (valor) => {
     minimumFractionDigits: 2,
   });
 };
+
+const cargarIngresos = () => {
+  let ingresosHTML = "";
+  for (let ingreso of ingresos) {
+    ingresosHTML += crearIngresoHTML(ingreso);
+  }
+  document.getElementById('lista-ingresos').innerHTML = ingresosHTML;
+};
