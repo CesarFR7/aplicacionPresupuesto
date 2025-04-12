@@ -62,5 +62,22 @@ const cargarIngresos = () => {
   for (let ingreso of ingresos) {
     ingresosHTML += crearIngresoHTML(ingreso);
   }
-  document.getElementById('lista-ingresos').innerHTML = ingresosHTML;
+  document.getElementById("lista-ingresos").innerHTML = ingresosHTML;
+};
+
+const crearIngresoHTML = (ingreso) => {
+  let ingresoHTML = `
+  <div class="elemento limpiarEstilos">
+    <div class="elemento_descripcion">${ingreso.descripcion}</div>
+        <div class="derecha limpiarEstilos">
+          <div class="elemento_valor">+ ${formatoMoneda(ingreso.valor)}</div>
+            <div class="elemento_eliminar">
+                <button class="elemento_eliminar--btn">
+                   <ion-icon name="close-circle-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+  </div>
+  `;
+  return ingresoHTML;
 };
