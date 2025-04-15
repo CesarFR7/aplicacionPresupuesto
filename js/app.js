@@ -28,7 +28,8 @@ let cargarCabecero = () => {
   //   let convertirACadena= par;
   //   let numeroCaracteres = presupuesto.length;
   //   console.log(numeroCaracteres);
-  let porcentaje = totalEgresos() / totalIngresos();
+  console.log(isNaN(totalIngresos() / totalEgresos()) ? 0 : (totalIngresos() / totalEgresos()));
+  let porcentaje = isNaN(totalEgresos() / totalIngresos())? 0 : (totalEgresos() / totalIngresos());
   document.getElementById("presupuesto").innerHTML = formatoMoneda(presupuesto);
   document.getElementById("porcentaje").innerHTML =
     formatoPorcentaje(porcentaje);
@@ -102,7 +103,7 @@ const crearEgresoHTML = (egreso) => {
   <div class="derecha limpiarEstilos">
     <div class="elemento_valor">- ${formatoMoneda(egreso.valor)}</div>
     <div class="elemento_porcentaje">${formatoPorcentaje(
-      egreso.valor / totalEgresos()
+      isNaN(egreso.valor / totalEgresos()) ? 0 : egreso.valor / totalEgresos()
     )}</div>
     <div class="elemento_eliminar">
       <button class="elemento_eliminar--btn">
