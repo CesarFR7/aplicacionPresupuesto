@@ -28,7 +28,6 @@ let cargarCabecero = () => {
   //   let convertirACadena= par;
   //   let numeroCaracteres = presupuesto.length;
   //   console.log(numeroCaracteres);
-  console.log(isNaN(totalIngresos() / totalEgresos()) ? 0 : (totalIngresos() / totalEgresos()));
   let porcentaje = isNaN(totalEgresos() / totalIngresos())? 0 : (totalEgresos() / totalIngresos());
   document.getElementById("presupuesto").innerHTML = formatoMoneda(presupuesto);
   document.getElementById("porcentaje").innerHTML =
